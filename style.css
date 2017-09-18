@@ -1,13 +1,3 @@
-.county-stats {
-  width: 100%;
-}
-
-.county-stats-panel {
-  width: 50%;
-  margin: 10px;
-  display: inline-block;
-}
-
 .info {
   padding: 20px;
   background-color: lightgrey;
