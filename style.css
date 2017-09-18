@@ -1,0 +1,56 @@
+.panel {
+  width: 40vw;
+  margin: 10px;
+}
+
+.panel--left {
+  float: left;
+}
+
+.panel--right {
+  float: right;
+}
+
+.info {
+  padding: 20px;
+  background-color: lightgrey;
+}
+
+.info--header > h3 {
+  color: white;
+  text-align: center;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.info--detail {
+  margin: 10px;
+}
+
+.info--detail--header > h4 {
+  color: white;
+  background-color: #17caf2;
+  text-align: center;
+  margin: 0;
+  line-height: 2rem;
+}
+
+.info--detail--content {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #17caf2;
+}
+
+svg {
+  height: 50vw;
+  width: 50vw;
+}
+
+.hovered,
+.selected {
+  fill: #ff770e;
+  stroke: #0ba8cb;
+  stroke-width: 2;
+}
