@@ -1,14 +1,11 @@
-.panel {
-  width: 40vw;
+.county-stats {
+  width: 100%;
+}
+
+.county-stats-panel {
+  width: 50%;
   margin: 10px;
-}
-
-.panel--left {
-  float: left;
-}
-
-.panel--right {
-  float: right;
+  display: inline-block;
 }
 
 .info {
