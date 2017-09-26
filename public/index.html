@@ -3,14 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <!--
-  <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
-  <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
-  <title>CodePen - A Pen by  David Bellotti</title>
-  -->
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
 
   <style>
@@ -45,6 +39,10 @@
       border: 1px solid #0067ac;
     }
 
+    .collapsed .collapse-indicator {
+      transform: rotate(45deg);
+    }
+
     table.table {
       margin: 10px;
       width: calc(100% - 20px);
@@ -63,18 +61,6 @@
       stroke-width: 2;
     }
   </style>
-
-  <script>
-    window.console = window.console || function(t) {};
-  </script>
-
-  
-  
-  <script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
 
 </head>
 
@@ -271,7 +257,10 @@
         </div>
         <div class="info--detail">
           <a class="info--detail--header" data-toggle="collapse" data-parent="#county-stats-panel" href="#race-content" aria-expanded="true" aria-controls="race-content">
-            <h4>Race/Ethnicity</h4>
+            <h4 class="row">
+              <span class="col-1 collapse-indicator text-muted">&times;</span>
+              <span class="col-10">Race/Ethnicity</span>
+            </h4>
           </a>
           <div class="info--detail--content collapse show" id="race-content" role="tabpanel">
             <table class="table table-sm table-bordered">
@@ -303,8 +292,11 @@
           </div>
         </div>
         <div class="info--detail">
-          <a class="info--detail--header" data-toggle="collapse" data-parent="#county-stats-panel" href="#age-content" aria-expanded="true" aria-controls="age-content">
-            <h4>Age</h4>
+          <a class="info--detail--header collapsed" data-toggle="collapse" data-parent="#county-stats-panel" href="#age-content" aria-expanded="true" aria-controls="age-content">
+            <h4 class="row">
+              <span class="col-1 collapse-indicator text-muted">&times;</span>
+              <span class="col-10">Age</span>
+            </h4>
           </a>
           <div class="info--detail--content collapse" id="age-content" role="tabpanel">
             <table class="table table-sm table-bordered">
@@ -346,8 +338,11 @@
           </div>
         </div>
         <div class="info--detail">
-          <a class="info--detail--header" data-toggle="collapse" data-parent="#county-stats-panel" href="#sex-content" aria-expanded="true" aria-controls="sex-content">
-            <h4>Sex</h4>
+          <a class="info--detail--header collapsed" data-toggle="collapse" data-parent="#county-stats-panel" href="#sex-content" aria-expanded="true" aria-controls="sex-content">
+            <h4 class="row">
+              <span class="col-1 collapse-indicator text-muted">&times;</span>
+              <span class="col-10">Sex</span>
+            </h4>
           </a>
           <div class="info--detail--content collapse" id="sex-content" role="tabpanel">
             <table class="table table-sm table-bordered">
@@ -374,8 +369,11 @@
           </div>
         </div>
         <div class="info--detail">
-          <a class="info--detail--header" data-toggle="collapse" data-parent="#county-stats-panel" href="#transmission-categories-content" aria-expanded="true" aria-controls="transmission-categories-content">
-            <h4>Transmission Categories</h4>
+          <a class="info--detail--header collapsed" data-toggle="collapse" data-parent="#county-stats-panel" href="#transmission-categories-content" aria-expanded="true" aria-controls="transmission-categories-content">
+            <h4 class="row">
+              <span class="col-1 collapse-indicator text-muted">&times;</span>
+              <span class="col-10">Transmission Categories</span>
+            </h4>
           </a>
           <div class="info--detail--content collapse" id="transmission-categories-content" role="tabpanel">
             <table class="table table-sm table-bordered">
@@ -412,8 +410,11 @@
           </div>
         </div>
         <div class="info--detail">
-          <a class="info--detail--header" data-toggle="collapse" data-parent="#county-stats-panel" href="#prevalence-content" aria-expanded="true" aria-controls="prevalence-content">
-            <h4>Prevalence/Incidence</h4>
+          <a class="info--detail--header collapsed" data-toggle="collapse" data-parent="#county-stats-panel" href="#prevalence-content" aria-expanded="true" aria-controls="prevalence-content">
+            <h4 class="row">
+              <span class="col-1 collapse-indicator text-muted">&times;</span>
+              <span class="col-10">Prevalence/Incidence</span>
+            </h4>
           </a>
           <div class="info--detail--content collapse" id="prevalence-content" role="tabpanel">
             <table class="table table-sm table-bordered">
@@ -455,23 +456,20 @@
         this._fetch();
 
         var i = this.countyObjs.length;
-        while(i--) {if (window.CP.shouldStopExecution(1)){break;}
-          this.countyObjs[i].addEventListener("mouseenter", function(e) {
-            this.svg.appendChild(e.target).classList.add("hovered");
-            this._appendSelected();
-          }.bind(this));
-          
-          this.countyObjs[i].addEventListener("mouseleave", function(e) {
-            this.svg.appendChild(e.target).classList.remove("hovered");
-            this._appendSelected();
-          }.bind(this));
-          
-          this.countyObjs[i].addEventListener("click", function(e) {
-            this._update(e.target);
-          }.bind(this));
-        }
-    window.CP.exitedLoop(1);
 
+        this.countyObjs[i].addEventListener("mouseenter", function(e) {
+          this.svg.appendChild(e.target).classList.add("hovered");
+          this._appendSelected();
+        }.bind(this));
+
+        this.countyObjs[i].addEventListener("mouseleave", function(e) {
+          this.svg.appendChild(e.target).classList.remove("hovered");
+          this._appendSelected();
+        }.bind(this));
+
+        this.countyObjs[i].addEventListener("click", function(e) {
+          this._update(e.target);
+        }.bind(this));
       },
 
       _fetch: function() {
