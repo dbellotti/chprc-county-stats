@@ -457,19 +457,21 @@
 
         var i = this.countyObjs.length;
 
-        this.countyObjs[i].addEventListener("mouseenter", function(e) {
-          this.svg.appendChild(e.target).classList.add("hovered");
-          this._appendSelected();
-        }.bind(this));
+        while(i--) {
+          this.countyObjs[i].addEventListener("mouseenter", function(e) {
+            this.svg.appendChild(e.target).classList.add("hovered");
+            this._appendSelected();
+          }.bind(this));
 
-        this.countyObjs[i].addEventListener("mouseleave", function(e) {
-          this.svg.appendChild(e.target).classList.remove("hovered");
-          this._appendSelected();
-        }.bind(this));
+          this.countyObjs[i].addEventListener("mouseleave", function(e) {
+            this.svg.appendChild(e.target).classList.remove("hovered");
+            this._appendSelected();
+          }.bind(this));
 
-        this.countyObjs[i].addEventListener("click", function(e) {
-          this._update(e.target);
-        }.bind(this));
+          this.countyObjs[i].addEventListener("click", function(e) {
+            this._update(e.target);
+          }.bind(this));
+        }
       },
 
       _fetch: function() {
