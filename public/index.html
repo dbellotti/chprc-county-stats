@@ -64,6 +64,12 @@
       stroke: #0ba8cb;
       stroke-width: 2;
     }
+
+    #hovered-county-name {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
   </style>
 
 </head>
@@ -252,6 +258,7 @@
         </g>
       </g>
       </svg>
+      <div id="hovered-county-name"></div>
     </div>
 
     <div class="col-md-6 county-stats-panel">
@@ -464,11 +471,13 @@
         while(i--) {
           this.countyObjs[i].addEventListener("mouseenter", function(e) {
             this.svg.appendChild(e.target).classList.add("hovered");
+            this._displayHoveredCountyName(e.target);
             this._appendSelected();
           }.bind(this));
 
           this.countyObjs[i].addEventListener("mouseleave", function(e) {
             this.svg.appendChild(e.target).classList.remove("hovered");
+            this._removeHoveredCountyName();
             this._appendSelected();
           }.bind(this));
 
@@ -507,6 +516,16 @@
             e.style.fill = "hsl(20, 100%, " + lum + "%)";
           }
         }.bind(this));
+      },
+
+      _displayHoveredCountyName: function(target) {
+        let displayElem = document.querySelector("#hovered-county-name");
+        this._updateHeader(displayElem, target.id);
+      },
+
+      _removeHoveredCountyName: function() {
+        let displayElem = document.querySelector("#hovered-county-name");
+        displayElem.innerHTML = "";
       },
       
       _update: function(target) {
@@ -547,7 +566,7 @@
           }.bind(this));
         }
       },
-      
+
       _extractAttrs: function(json, attr, delimeter) {
         let attrs = {};
         
