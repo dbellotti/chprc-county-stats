@@ -41,3 +41,9 @@ svg {
   stroke: #0ba8cb;
   stroke-width: 2;
 }
+
+#hovered-county-name {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}

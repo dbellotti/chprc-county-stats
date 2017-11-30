@@ -11,11 +11,13 @@ var californiaStats = {
     while(i--) {
       this.countyObjs[i].addEventListener("mouseenter", function(e) {
         this.svg.appendChild(e.target).classList.add("hovered");
+        this._displayHoveredCountyName(e.target);
         this._appendSelected();
       }.bind(this));
       
       this.countyObjs[i].addEventListener("mouseleave", function(e) {
         this.svg.appendChild(e.target).classList.remove("hovered");
+        this._removeHoveredCountyName();
         this._appendSelected();
       }.bind(this));
       
@@ -54,6 +56,16 @@ var californiaStats = {
         e.style.fill = "hsl(20, 100%, " + lum + "%)";
       }
     }.bind(this));
+  },
+
+  _displayHoveredCountyName: function(target) {
+    let displayElem = document.querySelector("#hovered-county-name");
+    this._updateHeader(displayElem, target.id);
+  },
+
+  _removeHoveredCountyName: function() {
+    let displayElem = document.querySelector("#hovered-county-name");
+    displayElem.innerHTML = "";
   },
   
   _update: function(target) {
