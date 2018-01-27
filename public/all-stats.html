@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
+  <style>
+    .body {
+      background-color: #FFF;
+    }
+
+    .container {
+      margin-top: 10px;
+      background-color: white;
+    }
+
+    .nav-item {
+      padding: 10px;
+      border: 1px solid white;
+      font-size: 11px;
+      background: rgb(160,160,160);
+      font-weight: bold;
+    }
+
+    .nav-item a {
+      color: white;
+    }
+
+    .stat-container {
+      background-color: rgba(240, 240, 240, 0.9);
+    }
+
+    .stat-container-title {
+      padding: 1.25em;
+      background-color: #333;
+    }
+
+    .stat-container-title h5 {
+      display: block;
+      margin-bottom: 0;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1em;
+      margin: 0 0;
+      padding: 0;
+      line-height: 1.2;
+    }
+
+    .stat-container-text {
+      padding: 1.25em;
+      float: left;
+      width: 53%;
+    }
+
+    .stat-container-text h4 {
+      margin-bottom: .5em;
+      color: #636363;
+      font-size: 1.5em;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .total {
+      margin-bottom: .4em;
+      padding-bottom: .4em;
+      color: #0b0b0b;
+      font-weight: 600;
+      font-size: 3em;
+      line-height: 1;
+    }
+
+    .numbers h3 {
+      font-size: 36px;
+      margin-bottom: 25px;
+      padding-bottom: 32px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.16px;
+      color: #fff;
+      display: inline-block;
+    }
+
+    ol li, ul li {
+      list-style-type: none;
+    }
+
+    .chart-legend {
+      text-align: left;
+    }
+
+    li {
+      position: relative;
+      margin-bottom: .5em;
+      padding-left: 2em;
+      font-weight: 600;
+      font-size: .9em;
+      line-height: 1;
+    }
+
+    li i {
+      top: 0;
+      left: 0;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+    }
+
+    li span {
+      color: black;
+    }
+
+    .prevalence-padding {
+      padding: 1.25em;
+    }
+
+    .profile-prevalence i {
+      width: .8em;
+      font-size: 2em;
+      margin: .12em 0;
+    }
+
+    li .blue {
+      color: rgb(19, 151, 165);
+    }
+
+    li .red {
+      color: rgb(160, 27, 31);
+    }
+
+    li .green {
+      color: rgb(13, 97, 45);
+    }
+
+    .chart-area {
+      padding: 1.25em;
+      text-align: center;
+    }
+
+    .footer {
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      background-color: blue;
+    }
+
+
+  </style>
+
+</head>
+
+<body translate="no" >
+  <div class="container">
+    <div class="row">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#demographics">Demographics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#rate">HIV Rate Ratios by Race</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#diagnoses">Late HIV Diagnoses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="living-diagnoses">HIV Transmission Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#new-diagnoses-categories">New Diagnoses Transmission Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#rate-death">Rate of Death</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#state-prevention">State Prevention Progress</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#funding">Funding</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#std-quick-facts">STD Quick Facts</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="demographics" class="stat-container container">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
+        <h5>Demographics, 2014</h5>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-12 stat-container-text">
+        <h4 class="total">Total Population</h4>
+        <h2>38,792,291</h2>
+        <hr>
+        <h4>State Population by Race/Ethnicity</h4>
+        <div class="chart-legend">
+          <ul>
+            <li><i class="fa fa-circle" style="color: #30CFCD"></i><span>American Indian / Alaska Native (0.4%)</span></li>
+            <li><i class="fa fa-circle" style="color: #AA27C9"></i><span>Asian (13.8%)</span></li>
+            <li><i class="fa fa-circle" style="color: #1D4995"></i><span>Black (5.7%)</span></li>
+            <li><i class="fa fa-circle" style="color: #D31947"></i><span>Hispanic/Latino (38.6%)</span></li>
+            <li><i class="fa fa-circle"style="color: #7ECE2B"></i><span>Native Hawaiian / Other Pacific Islander (0.4%)</span></i></li>
+            <li><i class="fa fa-circle" style="color: #FDBF2D"></i><span>White (38.5%)</span></li>
+            <li><i class="fa fa-circle" style="color: #DB8DE2"></i><span>Multiple Race (2.6%)</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-12 chart-area">
+       <img src="https://i.imgur.com/s0TvYbS.png" height="300">
+      </div>
+    </div>
+  </div>
+
+  <div id="rate" class="stat-container container profile-prevalence">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
+        <h5>Estimated HIV Prevalence Rate Ratios by Race/Ethnicity, 2014</h5>
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-12 prevalence-padding">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <ul>
+              <li><i class="fa fa-male blue"></i></li>
+              <li><i class="fa fa-male red"></i><i class="fa fa-male red"></i><i class="fa fa-male red"></i></li>
+            </ul>
+            <hr>
+            <p><small>The rate of black males living with an HIV diagnosis is 2.5 times that of white males.</small></p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <ul>
+              <li><i class="fa fa-male blue"></i></li>
+              <li><i class="fa fa-male green"></i></li>
+            </ul>
+            <hr>
+            <p><small>The rate of Hispanic/Latino males living with an HIV diagnosis is 0.9 times that of white males.</small></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <ul>
+              <li><i class="fa fa-female blue"></i></li>
+              <li><i class="fa fa-female red"></i><i class="fa fa-female red"></i><i class="fa fa-female red"></i><i class="fa fa-female red"></i><i class="fa fa-female red"></i><i class="fa fa-female red"></i><i class="fa fa-female red"></i><i class="fa fa-female red"></i><i class="fa fa-female red"></i><i class="fa fa-female red"></i></li>
+            </ul>
+            <hr>
+            <p><small>The rate of black females living with an HIV diagnosis is 9.7 times that of white females.</small></p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <ul>
+              <li><i class="fa fa-female blue"></i></li>
+              <li><i class="fa fa-female green"></i><i class="fa fa-female green"></i></li>
+            </ul>
+            <hr>
+            <p><small>The rate of Hispanic/Latina females living with an HIV diagnosis is 1.7 times that of white females.</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div id="diagnoses" class="stat-container container">
+      <div class="row">
+        <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
+          <h5>Estimated Percent of AIDS Diagnoses Within 3 Months of Initial HIV Diagnosis, 2014</h5>
+        </div>
+        <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
+              <h5>United States</h5>
+              <img src="https://i.imgur.com/fxBTIjm.png" height="300">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
+              <h5>California</h5>
+              <img src="https://i.imgur.com/waEJsFu.png" height="300">
+            </div>
+          </div>
+          <ul>
+            <li><i class="fa fa-circle" style="color: #3CCECC"></i><span> Diagnosed with AIDS</span></li>
+            <li><i class="fa fa-circle" style="color: #EBEBEB"></i><span> Diagnosed with HIV</span></li>
+          </ul>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div id="living-diagnoses" class="stat-container container">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
+        <h5>Estimated Percent of Persons Living with Diagnosed HIV, by Transmission Category, 2014</h5>
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
+         <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
+             <h3>People Living with Diagnosed HIV</h3>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
+             <h5>Male Transmission Categories</h5>
+             <img src="https://i.imgur.com/lBwkZqq.png" height="300">
+           </div>
+           <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
+              <h5>Female Transmission Categories</h5>
+              <img src="https://i.imgur.com/7zZa70U.png" height="300">
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-lg-6 col-md-6 col-sm-12 chart-legend">
+              <ul>
+                <li><i class="fa fa-circle" style="color: #30CFCD"></i><span>Injection Drug Use (24.3%)</span></li>
+                <li><i class="fa fa-circle" style="color: #AA27C9"></i><span>Heterosexual Contact (72.1%)</span></li>
+                <li><i class="fa fa-circle" style="color: #1D4995"></i><span>Other* (3.6%)</span></li>
+                <li><i class="fa fa-circle" style="color: #D31947"></i><span>Male-to-Male Sexual Contact (81.1%)</span></li>
+                <li><i class="fa fa-circle" style="color: #7ECE2B"></i><span>Male-to-Male Sexual Contact & Injection Drug Use (9.1%)</span></li>
+              </ul>
+           </div>
+           <div class="col-lg-6 col-md-6 col-sm-12 chart-legend">
+              <ul>
+                <li><i class="fa fa-circle" style="color: #30CFCD"></i><span>Injection Drug Use (24.3%)</span></li>
+                <li><i class="fa fa-circle" style="color: #AA27C9"></i><span>Heterosexual Contact (72.1%)</span></li>
+                <li><i class="fa fa-circle" style="color: #1D4995"></i><span>Other* (3.6%)</span></li>
+              </ul>
+           </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12">
+              <p><small>*Includes hemophilia, blood transfusion, perinatal exposure, and risk factor not reported or not identified.</small></p>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="new-diagnoses-categories" class="stat-container container">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
+        <h5>Estimated Percent of Persons Living with Diagnosed HIV, by Transmission Category, 2015</h5>
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
+         <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
+             <h3>New Diagnoses</h3>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
+             <h5>Male Transmission Categories</h5>
+             <img src="https://i.imgur.com/2NpZRpb.png" height="300">
+           </div>
+           <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
+              <h5>Female Transmission Categories</h5>
+              <img src="https://i.imgur.com/MTwGuqW.png" height="300">
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-lg-6 col-md-6 col-sm-12 chart-legend">
+              <ul>
+                <li><i class="fa fa-circle" style="color: #30CFCD"></i><span>Injection Drug Use (3.5%)</span></li>
+                <li><i class="fa fa-circle" style="color: #AA27C9"></i><span>Heterosexual Contact (4.1%)</span></li>
+                <li><i class="fa fa-circle" style="color: #1D4995"></i><span>Other* (0.0%)</span></li>
+                <li><i class="fa fa-circle" style="color: #D31947"></i><span>Male-to-Male Sexual Contact (88.2%)</span></li>
+                <li><i class="fa fa-circle" style="color: #7ECE2B"></i><span>Male-to-Male Sexual Contact & Injection Drug Use (4.1%)</span></li>
+              </ul>
+           </div>
+           <div class="col-lg-6 col-md-6 col-sm-12 chart-legend">
+              <ul>
+                <li><i class="fa fa-circle" style="color: #30CFCD"></i><span>Injection Drug Use (16.7%)</span></li>
+                <li><i class="fa fa-circle" style="color: #AA27C9"></i><span>Heterosexual Contact (82.9%)</span></li>
+                <li><i class="fa fa-circle" style="color: #1D4995"></i><span>Other* (0.3%)</span></li>
+              </ul>
+           </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12">
+              <p><small>*Includes hemophilia, blood transfusion, perinatal exposure, and risk factor not reported or not identified.</small></p>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rate-death" class="stat-container container">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
+        <h5>Age-Adjusted Rates of Death Due to HIV Disease, 2012-2014</h5>
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
+        <img src="https://i.imgur.com/V9cnh3J.png" height="300">
+        <hr>
+        <p><small>Deaths Per 100,000 Population</small></p>
+        <p><i class="fa fa-square" style="color: #30CFCD"></i>  State Rates</p>
+        <p><i class="fa fa-square" style="color: #000"></i>  National Rates</p>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="state-prevention" class="stat-container container">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
+        <h5>State Progress Toward CDC’s Division of HIV/AIDS Prevention Goals for 2016</h5>
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
+        <img src="https://i.imgur.com/HbUJZnx.png" height="300">
+        <hr>
+        <p><i class="fa fa-square" style="color: #000"></i> National Goal</p>
+        <p><i class="fa fa-square" style="color: #30CFCD"></i> California Progress</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="funding" class="stat-container container">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
+        <h5>HIV Federal Funding/ Programs, Federal HIV/AIDS Grant Funding, FY 2015</h5>
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-12 prevalence-padding">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <h5>Centers for Disease Control & Prevention:</h5>
+            <h3>$418,313,480</h3>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <h5>Substance Abuse & Mental Health Services Administration:</h5>
+            <h3>$19,074,115</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <h5>Ryan White HIV/AIDS Program:</h5>
+            <h3>$285,179,347</h3>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <h5>Housing Opportunities for Persons With AIDS:</h5>
+            <h3>$39,656,424</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
+            <hr>
+            <h4>TOTAL FUNDING</h4>
+            <h2>$418,313,480</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="std-quick-facts" class="stat-container container">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
+        <h5>Sexually Transmitted Diseases, 2014</h5>
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-12 prevalence-padding">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-sm-12">
+            <ul>
+              <li>Chlamydia</li>
+              <li>National Rank: 25</li>
+            </ul>
+          </div>
+          <div class="col-lg-8 col-md-12 col-sm-12">
+            <img src="https://i.imgur.com/m7MAitc.png" height="50%">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-sm-12">
+            <ul>
+              <li>Gonorrhea</li>
+              <li>National Rank: 16</li>
+            </ul>
+          </div>
+          <div class="col-lg-8 col-md-12 col-sm-12">
+            <img src="https://i.imgur.com/iifRJ68.png" height="50%">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-sm-12">
+            <ul>
+              <li>Primary & Secondary Syphilis</li>
+              <li>National Rank: 6</li>
+            </ul>
+          </div>
+          <div class="col-lg-8 col-md-12 col-sm-12">
+            <img src="https://i.imgur.com/gMjrTkv.png" height="50%">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
