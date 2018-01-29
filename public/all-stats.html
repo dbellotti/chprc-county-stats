@@ -7,10 +7,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Arimo|Montserrat'>
 
   <style>
     .body {
       background-color: #FFF;
+      font-family: 'Arimo', sans-serif;
       font-family: 'Montserrat', sans-serif;
     }
 
@@ -22,9 +24,12 @@
     .nav-item {
       padding: 10px;
       border: 1px solid white;
-      font-size: 11px;
-      background: rgb(160,160,160);
-      font-weight: bold;
+      background-color: #0067ac;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: #fff;
+      font-weight: 400;
     }
 
     .nav-item a {
@@ -41,10 +46,11 @@
     }
 
     .stat-container-title h5 {
+      font-family': 'Montserrat', sans-serif;
       display: block;
       margin-bottom: 0;
       color: #fff;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.1em;
       margin: 0 0;
       padding: 0;
@@ -66,32 +72,39 @@
     }
 
     .total {
-      color: #636363;
+      font-family': 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #0067ac;
       margin-bottom: .5em;
       font-size: 1.5em;
       line-height: 1;
+      text-transform: uppercase;
     }
 
     h3 {
+      font-family': 'Montserrat', sans-serif;
       margin-bottom: .75em;
-      color: #333;
+      color: #0067ac;
       font-size: 1.1em;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.2;
+      text-transform: uppercase;
     }
 
   .title-diagnoses {
-      color: #777;
+      color: #0067ac;
       text-align: center;
       font-size: 1.35em;
       font-weight: 600;
       line-height: 1.2;
       margin-bottom: 0;
+      text-transform: uppercase;
     }
 
   .sub-title-diagnoses {
     margin-bottom: 1.85em;
     color: #333;
+    text-transform: uppercase;
     text-align: center;
     font-size: 1.1em;
     font-weight: 600;
@@ -187,10 +200,12 @@
 
     h6 {
       font-weight: 400;
+      text-transform: uppercase;
     }
 
     #funding h4 {
       font-weight: 600;
+      text-transform: uppercase;
     }
 
     .footer {
@@ -240,13 +255,6 @@
       </ul>
     </div>
   </div>
-
-  <h1>Hello world</h1>
-  <h2>Hello world</h2>
-  <h3>Hello world</h3>
-  <h4>Hello world</h4>
-  <h5>Hello world</h5>
-  <h6>Hello world</h6>
 
   <div id="demographics" class="stat-container container">
     <div class="row">
@@ -515,7 +523,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
             <hr>
-            <h4>TOTAL FUNDING</h4>
+            <h4 class="title-diagnoses">TOTAL FUNDING</h4>
             <h2 class="inverse">$418,313,480</h2>
           </div>
         </div>
