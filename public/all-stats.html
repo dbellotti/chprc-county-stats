@@ -11,6 +11,7 @@
   <style>
     .body {
       background-color: #FFF;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .container {
@@ -65,27 +66,73 @@
     }
 
     .total {
+      color: #636363;
+      margin-bottom: .5em;
+      font-size: 1.5em;
+      line-height: 1;
+    }
+
+    h3 {
+      margin-bottom: .75em;
+      color: #333;
+      font-size: 1.1em;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+  .title-diagnoses {
+      color: #777;
+      text-align: center;
+      font-size: 1.35em;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+
+  .sub-title-diagnoses {
+    margin-bottom: 1.85em;
+    color: #333;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 .75em;
+    padding: 0;
+    }
+
+    .total-population {
+      display: block;
       margin-bottom: .4em;
       padding-bottom: .4em;
+      border-bottom: 1px solid #b0b0b0;
       color: #0b0b0b;
       font-weight: 600;
       font-size: 3em;
       line-height: 1;
     }
 
-    .numbers h3 {
+    .inverse {
+      color: #fff;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h2 {
       font-size: 36px;
-      margin-bottom: 25px;
-      padding-bottom: 32px;
-      font-family: 'Montserrat', sans-serif;
       font-weight: 400;
       letter-spacing: 0.16px;
-      color: #fff;
-      display: inline-block;
     }
 
     ol li, ul li {
       list-style-type: none;
+    }
+
+    .left-list {
+      clear: both;
+      margin: 0 auto;
+      padding-top: 1em;
+      max-width: 16em;
+      text-align: justify;
     }
 
     .chart-legend {
@@ -95,15 +142,13 @@
     li {
       position: relative;
       margin-bottom: .5em;
-      padding-left: 2em;
       font-weight: 600;
       font-size: .9em;
-      line-height: 1;
+      line-height: 1.25em;
     }
 
-    li i {
-      top: 0;
-      left: 0;
+    i {
+      margin-right: 1.5em;
       width: 1em;
       height: 1em;
       border-radius: 50%;
@@ -138,6 +183,14 @@
     .chart-area {
       padding: 1.25em;
       text-align: center;
+    }
+
+    h6 {
+      font-weight: 400;
+    }
+
+    #funding h4 {
+      font-weight: 600;
     }
 
     .footer {
@@ -188,16 +241,22 @@
     </div>
   </div>
 
+  <h1>Hello world</h1>
+  <h2>Hello world</h2>
+  <h3>Hello world</h3>
+  <h4>Hello world</h4>
+  <h5>Hello world</h5>
+  <h6>Hello world</h6>
+
   <div id="demographics" class="stat-container container">
     <div class="row">
       <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
         <h5>Demographics, 2014</h5>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12 stat-container-text">
-        <h4 class="total">Total Population</h4>
-        <h2>38,792,291</h2>
-        <hr>
-        <h4>State Population by Race/Ethnicity</h4>
+        <h3 class="total">Total Population</h3>
+        <span class="total-population">38,792,291</span>
+        <h3 class="total">State Population by Race/Ethnicity</h3>
         <div class="chart-legend">
           <ul>
             <li><i class="fa fa-circle" style="color: #30CFCD"></i><span>American Indian / Alaska Native (0.4%)</span></li>
@@ -270,15 +329,15 @@
         <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
-              <h5>United States</h5>
+              <h3>United States</h3>
               <img src="https://i.imgur.com/fxBTIjm.png" height="300">
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
-              <h5>California</h5>
+              <h3>California</h3>
               <img src="https://i.imgur.com/waEJsFu.png" height="300">
             </div>
           </div>
-          <ul>
+          <ul class="left-list">
             <li><i class="fa fa-circle" style="color: #3CCECC"></i><span> Diagnosed with AIDS</span></li>
             <li><i class="fa fa-circle" style="color: #EBEBEB"></i><span> Diagnosed with HIV</span></li>
           </ul>
@@ -296,16 +355,16 @@
       <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
          <div class="row">
            <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
-             <h3>People Living with Diagnosed HIV</h3>
+             <h3 class="title-diagnoses">People Living with Diagnosed HIV</h3>
            </div>
          </div>
          <div class="row">
            <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
-             <h5>Male Transmission Categories</h5>
+             <h4 class="sub-title-diagnoses">Male Transmission Categories</h4>
              <img src="https://i.imgur.com/lBwkZqq.png" height="300">
            </div>
            <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
-              <h5>Female Transmission Categories</h5>
+              <h4 class="sub-title-diagnoses">Female Transmission Categories</h4>
               <img src="https://i.imgur.com/7zZa70U.png" height="300">
            </div>
          </div>
@@ -344,16 +403,16 @@
       <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
          <div class="row">
            <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
-             <h3>New Diagnoses</h3>
+             <h3 class="title-diagnoses">New Diagnoses</h3>
            </div>
          </div>
          <div class="row">
            <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
-             <h5>Male Transmission Categories</h5>
+             <h4 class="sub-title-diagnoses">Male Transmission Categories</h4>
              <img src="https://i.imgur.com/2NpZRpb.png" height="300">
            </div>
            <div class="col-lg-6 col-md-6 col-sm-12 chart-area">
-              <h5>Female Transmission Categories</h5>
+              <h4 class="sub-title-diagnoses">Female Transmission Categories</h4>
               <img src="https://i.imgur.com/MTwGuqW.png" height="300">
            </div>
          </div>
@@ -390,11 +449,17 @@
         <h5>Age-Adjusted Rates of Death Due to HIV Disease, 2012-2014</h5>
       </div>
       <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
+            <h3 class="title-diagnoses">Rate of Death</h3>
+          </div>
+        </div>
         <img src="https://i.imgur.com/V9cnh3J.png" height="300">
         <hr>
         <p><small>Deaths Per 100,000 Population</small></p>
-        <p><i class="fa fa-square" style="color: #30CFCD"></i>  State Rates</p>
-        <p><i class="fa fa-square" style="color: #000"></i>  National Rates</p>
+        <ul class="left-list">
+          <li><i class="fa fa-square" style="color: #22bde9"></i>  State Rates</li>
+          <li><i class="fa fa-square" style="color: #000"></i>  National Rates</li>
         </ul>
       </div>
     </div>
@@ -406,10 +471,17 @@
         <h5>State Progress Toward CDC’s Division of HIV/AIDS Prevention Goals for 2016</h5>
       </div>
       <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
+            <h3 class="title-diagnoses">State Progress</h3>
+          </div>
+        </div>
         <img src="https://i.imgur.com/HbUJZnx.png" height="300">
         <hr>
-        <p><i class="fa fa-square" style="color: #000"></i> National Goal</p>
-        <p><i class="fa fa-square" style="color: #30CFCD"></i> California Progress</p>
+        <ul class="left-list">
+          <li><i class="fa fa-square" style="color: #000"></i> National Goal</li>
+          <li><i class="fa fa-square" style="color: #30CFCD"></i> California Progress</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -422,29 +494,29 @@
       <div class="col-lg-10 col-md-12 col-sm-12 prevalence-padding">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <h5>Centers for Disease Control & Prevention:</h5>
-            <h3>$418,313,480</h3>
+            <h6>Centers for Disease Control & Prevention:</h6>
+            <h4>$418,313,480</h4>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <h5>Substance Abuse & Mental Health Services Administration:</h5>
-            <h3>$19,074,115</h3>
+            <h6>Substance Abuse & Mental Health Services Administration:</h6>
+            <h4>$19,074,115</h4>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <h5>Ryan White HIV/AIDS Program:</h5>
-            <h3>$285,179,347</h3>
+            <h6>Ryan White HIV/AIDS Program:</h6>
+            <h4>$285,179,347</h4>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <h5>Housing Opportunities for Persons With AIDS:</h5>
-            <h3>$39,656,424</h3>
+            <h6>Housing Opportunities for Persons With AIDS:</h6>
+            <h4>$39,656,424</h4>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
             <hr>
             <h4>TOTAL FUNDING</h4>
-            <h2>$418,313,480</h2>
+            <h2 class="inverse">$418,313,480</h2>
           </div>
         </div>
       </div>
