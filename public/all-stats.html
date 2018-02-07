@@ -16,7 +16,7 @@
       border-radius: 5px;
     }
 
-    .nav-item {
+    /* .nav-item {
       padding: 10px;
       border: 1px solid white;
       background-color: #0067ac;
@@ -29,7 +29,7 @@
 
     .nav-item a {
       color: white;
-    }
+    } */
 
     .stat-container {
       background-color: rgba(240, 240, 240, 0.9);
@@ -43,13 +43,9 @@
 
     .stat-container-title h5 {
       font-family: 'Montserrat', sans-serif;
-      display: block;
-      margin-bottom: 0;
       color: #fff;
       font-weight: 700;
-      font-size: 1.1em;
-      margin: 0 0;
-      padding: 0;
+      font-size: 1.15rem;
       line-height: 1.2;
     }
 
@@ -121,9 +117,12 @@
     }
 
     .inverse {
-      color: #fff;
+      display: block;
+      padding: .5em 0;
+      color: #0b0b0b;
       font-weight: 600;
-      line-height: 1.2;
+      font-size: 3em;
+      line-height: 1;
     }
 
     h2 {
@@ -194,6 +193,11 @@
       text-align: center;
     }
 
+    .pie-chart {
+      padding: 3.75em;
+      text-align: center;
+    }
+
     h6 {
       font-weight: 400;
       text-transform: uppercase;
@@ -212,13 +216,17 @@
       background-color: blue;
     }
 
+    .space {
+      padding-bottom: .8em;
+    }
+
 
   </style>
 
 </head>
 
 <body translate="no" >
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
       <ul class="nav">
         <li class="nav-item">
@@ -250,7 +258,7 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 
   <div id="demographics" class="stat-container container">
     <div class="row">
@@ -258,9 +266,9 @@
         <h5>Demographics, 2014</h5>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12 stat-container-text">
-        <h3 class="total">Total Population</h3>
+        <h3 class="total space">Total Population</h3>
         <span class="total-population">38,792,291</span>
-        <h3 class="total">State Population by Race/Ethnicity</h3>
+        <h3 class="total space">State Population by Race/Ethnicity</h3>
         <div class="chart-legend">
           <ul>
             <li><i class="fa fa-circle" style="color: #30CFCD"></i><span>American Indian / Alaska Native (0.4%)</span></li>
@@ -273,7 +281,7 @@
           </ul>
         </div>
       </div>
-      <div class="col-lg-5 col-md-6 col-sm-12 chart-area">
+      <div class="col-lg-5 col-md-6 col-sm-12 pie-chart">
        <img src="https://i.imgur.com/s0TvYbS.png" height="300">
       </div>
     </div>
@@ -472,12 +480,12 @@
   <div id="state-prevention" class="stat-container container">
     <div class="row">
       <div class="col-lg-2 col-md-12 col-sm-12 stat-container-title">
-        <h5>State Progress Toward CDC’s Division of HIV/AIDS Prevention Goals for 2016</h5>
+        <h5 class>State Progress Toward CDC’s Division of HIV/AIDS Prevention Goals for 2016</h5>
       </div>
       <div class="col-lg-10 col-md-12 col-sm-12 chart-area">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
-            <h3 class="title-diagnoses">State Progress</h3>
+            <h3 class="title-diagnoses space">State Progress</h3>
           </div>
         </div>
         <img src="https://i.imgur.com/HbUJZnx.png" height="300">
@@ -497,9 +505,16 @@
       </div>
       <div class="col-lg-10 col-md-12 col-sm-12 prevalence-padding">
         <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
+            <h3 class="title-diagnoses">TOTAL FUNDING</h3>
+            <h2 class="inverse">$418,313,480</h2>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">
             <h6>Centers for Disease Control & Prevention:</h6>
-            <h4>$418,313,480</h4>
+            <h4>$74,403,594</h4>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
             <h6>Substance Abuse & Mental Health Services Administration:</h6>
@@ -516,13 +531,6 @@
             <h4>$39,656,424</h4>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
-            <hr>
-            <h4 class="title-diagnoses">TOTAL FUNDING</h4>
-            <h2 class="inverse">$418,313,480</h2>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -533,6 +541,11 @@
         <h5>Sexually Transmitted Diseases, 2014</h5>
       </div>
       <div class="col-lg-10 col-md-12 col-sm-12 prevalence-padding">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 chart-area">
+            <h3 class="title-diagnoses space">Sexually Transmitted Diseases</h3>
+          </div>
+        </div>
         <div class="row">
           <div class="col-lg-4 col-md-12 col-sm-12">
             <ul>
